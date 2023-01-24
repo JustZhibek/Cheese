@@ -1,0 +1,31 @@
+PRIMARY KEY
+CREATE TABLE products (
+    product_id INTEGER PRIMARY KEY,
+    name TEXT,
+    descr TEXT,
+    price INTEGER,
+    photo TEXT
+)
+
+CREATE TABLE orders (
+    orders_id INTEGER PRIMARY KEY,
+    name TEXT,
+    userid INTEGER,
+    address INTEGER,
+    day TEXT,
+    product_id INTEGER,
+    FOREIGN KEY (product_id)
+        REFERENCES product(product_id)
+)
+
+INSERT INTO products (
+    name,
+    descr,
+    price,
+    photo
+) VALUES
+('Охота на овец', 'история',650, 'C:\Users\User\PycharmProjects\HW1\media\ohota-na-ovec.jpg')
+('Бегущий за ветром', "история", 678, 'C:\Users\User\PycharmProjects\HW1\media\Running.jpg')
+('Marvel', 'фантастика', 374, 'C:\Users\User\PycharmProjects\HW1\media\marvel.jpg')
+
+SELECT * FROM products

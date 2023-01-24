@@ -94,6 +94,6 @@ async def process_done(message: types.Message, state: FSMContext):
     """
     await state.finish()
     await message.reply(
-        "Благодарю за заполнение анкеты!",
+        "Спасибо за заполнение анкеты!",
         reply_markup=ReplyKeyboardRemove()
     )
