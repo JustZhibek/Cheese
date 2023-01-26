@@ -20,6 +20,11 @@ from module.fms_info import (
 	process_done
 )
 
+from db.base import  init,create_tables,order_process
+
+async def startup(_):
+    init()
+    create_tables()
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
@@ -44,4 +49,4 @@ if __name__ == "__main__":
     dp.register_message_handler(da_net, commands=['да'], commands_prefix=['!'])
     dp.register_message_handler(bad_words)
 
-    executor.start_polling(dp, skip_updates=True)
+    executor.start_polling(dp, skip_updates=True, on startup=startup)
