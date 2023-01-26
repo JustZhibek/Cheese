@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-import db
+
 
 
 def init():
@@ -54,7 +54,9 @@ def populate_products():
     ) VALUES
     (""" 'Охота на овец', 'история' , 650 , 'C:\Users\User\PycharmProjects\HW1\media\ohota-na-ovec.jpg') ,
     ('Бегущий за ветром', "история", 678, 'C:\Users\User\PycharmProjects\HW1\media\Running.jpg') ,
-    ('Marvel', 'фантастика', 374, 'C:\Users\User\PycharmProjects\HW1\media\marvel.jpg') """)
+    ('Marvel', 'фантастика', 374, 'C:\Users\User\PycharmProjects\HW1\media\marvel.jpg')
+      """)
+    
     db.commit()
 
 
@@ -84,8 +86,3 @@ def order_process(data):
                  'day': data['day'],
                  'product_id': data['product_id']})
     db.commit()
-
-
-create_tables()
-populate_products()
-db.close()
